@@ -335,7 +335,7 @@
 })();
 
 var waves = new Waves('#holder', {
-  fps: false,
+  fps: true,
   waves: 3,
   width: 200,
 });
