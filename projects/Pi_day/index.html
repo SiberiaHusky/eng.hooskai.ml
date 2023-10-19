@@ -12,7 +12,7 @@
         <!-- Fontawesome -->
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
         <!-- Style -->
-        <link href="//intl.hooskai.top/assets/style.css" rel="stylesheet">
+        <link href="//ui.hooskai.top/assets/style.css" rel="stylesheet">
     </head>
 
     <body>
@@ -69,38 +69,6 @@
                     </ul>
                 </div>
             </div>
-
-            <!-- JavaScript-->
-            <script type="text/javascript">
-                // get today's date
-                let today = new Date();
-
-                // set the date as 3/14
-                let piDay = new Date(today.getFullYear(), 3-1, 14);
-
-                // if today's date is already past 3/14, then set it as the following year and hide 'pidayDiv'
-                if (today > piDay) {
-                    piDay.setFullYear(piDay.getFullYear() + 1);
-                    document.querySelector(".pidayDiv").style.display = "none";
-                }
-
-                // if today is 14/3, hide the countdown and display 'pidayDiv'
-                else if (today == piDay) {
-                    document.querySelector(".countdownDiv").style.display = "none";
-                    document.querySelector(".pidayDiv").style.display = "block";
-                }
-
-                // if today's date has not yet reached 14/3, hide 'pidayDiv'
-                else {
-                    document.querySelector(".pidayDiv").style.display = "none";
-                }
-
-                // calculate the remaining days
-                let timeLeft = Math.round((piDay.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
-
-                // display the countdown on the webpage
-                document.getElementById("countdown").innerHTML = timeLeft
-            </script>
         </div>
 
         <!-- footer -->
@@ -108,16 +76,45 @@
             <hr>
 
             <div style="margin: 32px; margin-bottom: 0;">
-                Copyrights &copy; 2019-2023 <a href="/">SiberiaHusky</a>. All rights reserved.<!--
-                --><span style="margin-inline-start: 16px;">KVUI V3<span class="us-n"> — </span>Made by <a href="https://hooskai.top">SiberiaHusky</a> with <a href="#" title="love">❤️</a></span>
+                Copyrights &copy; 2019-<span id="this_year"></span> <a href="/">SiberiaHusky</a>. All rights reserved.
             </div>
             <ul class="us-n" style="display: flex; margin: 32px; margin-top: 16px;">
-                <li><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ru" target="_blank"><i class="fa-brands fa-creative-commons"></i> <i class="fa-brands fa-creative-commons-by"></i> <i class="fa-brands fa-creative-commons-sa"></i> CC BY-SA 4.0 DEED</a></li>
+                <li><a href="https://creativecommons.org/licenses/by-sa/4.0/deed" target="_blank" title="CC BY-SA 4.0 DEED"><i class="fa-brands fa-creative-commons"></i> <i class="fa-brands fa-creative-commons-by"></i> <i class="fa-brands fa-creative-commons-sa"></i></a></li>
+                <li><a href="https://ui.hooskai.top/" target="_blank" title="Made by SiberiaHusky with Welt UI and Love"><img src="//ui.hooskai.top/assets/img/Logo_White.png" style="height: 12px;"></a></li>
             </ul>
         </footer>
     </body>
 
-    <script>
-        
+    <!-- date javasript -->
+    <script type="text/javascript">
+        var date = new Date();
+      
+        document.querySelector('#this_year').innerText = date.getFullYear();
+
+        // set the date as 3/14
+        let piDay = new Date(date.getFullYear(), 3-1, 14);
+
+        // if today's date is already past 3/14, then set it as the following year and hide 'pidayDiv'
+        if (date > piDay) {
+            piDay.setFullYear(piDay.getFullYear() + 1);
+            document.querySelector(".pidayDiv").style.display = "none";
+        }
+
+        // if today is 14/3, hide the countdown and display 'pidayDiv'
+        else if (date == piDay) {
+            document.querySelector(".countdownDiv").style.display = "none";
+            document.querySelector(".pidayDiv").style.display = "block";
+        }
+
+        // if today's date has not yet reached 14/3, hide 'pidayDiv'
+        else {
+            document.querySelector(".pidayDiv").style.display = "none";
+        }
+
+        // calculate the remaining days
+        let timeLeft = Math.round((piDay.getTime() - date.getTime()) / (1000 * 60 * 60 * 24));
+
+        // display the countdown on the webpage
+        document.getElementById("countdown").innerHTML = timeLeft
     </script>
 </html>

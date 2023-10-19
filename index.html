@@ -12,7 +12,7 @@
         <!-- Fontawesome -->
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
         <!-- Style -->
-        <link href="//intl.hooskai.top/assets/style.css" rel="stylesheet">
+        <link href="https://ui.hooskai.top/assets/style.css" rel="stylesheet">
     </head>
 
     <body>
@@ -43,7 +43,7 @@
 
             <!-- introduction -->
             <div style="margin: 32px; margin-top: 0; text-align: end;">
-                <div class="us-n" style="margin-bottom: 16px; vertical-align: text-bottom;">
+                <div id="tags" class="us-n" style="margin-bottom: 16px; vertical-align: text-bottom;">
                     <p class="dp-ib" style="margin-right: 8px; color: rgba(255, 255, 255, 0.25);">我的标签</p>
                     <h1 class="dp-ib fs-xxl">My tags</h1>
                     <p style="color: rgba(255, 255, 255, 0.25);">First of all, nice to meet U!</p>
@@ -53,7 +53,7 @@
                     <p class="fs-l">
                         <ul>
                             <li>Use my whole life to tell many unfortunate stories.</li><!--
-                            --><li>Born for the Earth's construction for <span class="fw-b us-n" id="censord" style="cursor: text;">16</span> years.</li><!--
+                            --><li>Born for the Earth's construction for <span class="fw-b us-n" id="censord" style="cursor: text;"><span id="age"></span></span> years.</li><!--
                             --><li>Coastal citizens from Furry Republic.</li><!--
                             --><li>INFP</li><li>LGBT 🌈</li><li>Stop Asian Hate</li><li>Black Lives Matter</li><!--
                             --><li>Moderate social anxiety disorder patient (self-identified).</li><!--
@@ -61,13 +61,13 @@
                         </ul>
                     </p>
 
-                    <ul class="us-n" style="display: flex; text-align: end; margin-top: 24px;">
+                    <!--ul class="us-n" style="display: flex; text-align: end; margin-top: 24px;">
                         <li title="I'm so sorry, but this is under construction..."><a href="#">About me</a></li>
-                    </ul>
+                    </ul-->
                 </div>
             </div>
 
-            <div style="margin: 32px; margin-top: 0; text-align: end;">
+            <div id="foods" style="margin: 32px; margin-top: 64px; text-align: end;">
                 <div class="us-n" style="margin-bottom: 16px; vertical-align: text-bottom;">
                     <p class="dp-ib" style="margin-right: 8px; color: rgba(255, 255, 255, 0.25);">我喜欢的吃的</p>
                     <h1 class="dp-ib fs-xxl">My favorites foods</h1>
@@ -80,7 +80,7 @@
                             <li>Meat</li><!--
                             --><li>Fried meat</li><!--
                             --><li>Raw salmon</li><!--
-                            --><li>Potatoes (all kinds of practices, except raw<span class="fw-b" id="censord">, and Sweet potatoes are NOT potatoes!</span>)</li><!--
+                            --><li>Potatoes (all kinds of practices, except raw)<span class="fw-b" id="censord">(Sweet potatoes are NOT potatoes!)</span></li><!--
                             --><li>Hamburgers & Sandwiches</li>
                         </ul>
                     </p>
@@ -88,7 +88,7 @@
             </div>
 
             <!-- works -->
-            <div style="margin: 32px; margin-top: 64px; text-align: end;">
+            <div id="works" style="margin: 32px; margin-top: 64px; text-align: end;">
                 <div class="us-n" style="margin-bottom: 16px; vertical-align: text-bottom;">
                     <p class="dp-ib" style="margin-right: 8px; color: rgba(255, 255, 255, 0.25);">我的作品</p>
                     <h1 class="dp-ib fs-xxl">My works</h1>
@@ -100,6 +100,7 @@
                         <ul class="list2">
                             <li><a href="/projects/Pi_day/">Calculate to Pi day</a></li><!--
                             --><li><a href="https://github.com/SiberiaHusky/Hooskai-Chamfered-Square/blob/main/README.md" target="_blank">Hooskai Chamfered Square font<i class="fa-solid fa-arrow-up-right-from-square" id="icon-left"></i></a></li><!--
+                            --><li><a href="https://ui.hooskai.top/" target="_blank">Welt UI<i class="fa-solid fa-arrow-up-right-from-square" id="icon-left"></i></a></li><!--
                             --><li><a href="https://stats.uptimerobot.com/5XXzmSM9NJ" target="_blank">My website status<i class="fa-solid fa-arrow-up-right-from-square" id="icon-left"></i></a></li><!--
                             --><li><a href="/links">Friends links</a></li><!--
                             --><li><a href="/projects/Beijing_2008">Beijing 2008</a></li><!--
@@ -111,11 +112,11 @@
             </div>
 
             <!-- contacts -->
-            <div style="margin: 32px; margin-top: 64px; text-align: end;">
+            <div id="contacts" style="margin: 32px; margin-top: 64px; text-align: end;">
                 <div class="us-n" style="margin-bottom: 16px; vertical-align: text-bottom;">
                     <p class="dp-ib" style="margin-right: 8px; color: rgba(255, 255, 255, 0.25);">我的联系方式</p>
                     <h1 class="dp-ib fs-xxl">My contacts</h1>
-                    <p style="color: rgba(255, 255, 255, 0.25);">My account name on SNS, and E-Mail address.</p>
+                    <p style="color: rgba(255, 255, 255, 0.25);">My account on SNS, and E-Mail address.</p>
                 </div>
 
                 <div style="text-align: left;">
@@ -159,16 +160,31 @@
             <hr>
 
             <div style="margin: 32px; margin-bottom: 0;">
-                Copyrights &copy; 2019-2023 <a href="/">SiberiaHusky</a>. All rights reserved.<!--
-                --><span style="margin-inline-start: 16px;">KVUI V3<span class="us-n"> — </span>Made by <a href="https://hooskai.top">SiberiaHusky</a> with <a href="#" title="love">❤️</a></span>
+                Copyrights &copy; 2019-<span id="this_year"></span> <a href="/">SiberiaHusky</a>. All rights reserved.
             </div>
             <ul class="us-n" style="display: flex; margin: 32px; margin-top: 16px;">
-                <li><a href="https://creativecommons.org/licenses/by-sa/4.0/deed" target="_blank">CC BY-SA 4.0 DEED</a></li>
+                <li><a href="https://creativecommons.org/licenses/by-sa/4.0/deed" target="_blank" title="CC BY-SA 4.0 DEED"><i class="fa-brands fa-creative-commons"></i> <i class="fa-brands fa-creative-commons-by"></i> <i class="fa-brands fa-creative-commons-sa"></i></a></li>
+                <li><a href="https://ui.hooskai.top/" target="_blank" title="Made by SiberiaHusky with Welt UI and Love"><img src="//ui.hooskai.top/assets/img/Logo_White.png" style="height: 12px;"></a></li>
             </ul>
         </footer>
     </body>
 
-    <script>
-        
-    </script>
+    <!-- date javasript -->
+    <script type="text/javascript">
+        var date = new Date();
+      
+        var todayDate = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate()
+      
+        function calcYearDiff() {
+          const todayMs = new Date(todayDate).getTime()
+          const targetMs = new Date('2007-03-14').getTime()
+          const diffInMs = Math.abs(todayMs - targetMs)
+          const diffInYears = diffInMs / (1000 * 60 * 60 * 24 * 365)
+          return Math.floor(diffInYears)
+        }
+      
+        document.querySelector('#age').innerText = calcYearDiff()
+      
+        document.querySelector('#this_year').innerText = date.getFullYear();
+      </script>
 </html>
