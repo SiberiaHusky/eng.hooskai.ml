@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="icon" href="https://pj.hooskai.top/assets/images/favicon.png">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Connecting A Wider World - Husky's World View">
+  <title>Calculate to Pi day - Husky's World View</title>
+  <link rel="stylesheet" href="https://pj.hooskai.top/assets/style/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+
+<body>
+  <div id="root">
+    <div class="ps5-page enter-done">
+      <div class="ps5-bg">
+        <div class="ps5-bg-item active" style="background-image: url('https://api.dujin.org/bing/1920.php');">
+        </div>
+      </div>
+
+      <div class="ps5-sheet">
+        <div class="ps5-hero ps5-container">
+          <div class="ps5-top">
+            <ul>
+              <li><a href="/index" class="ps5-top-btn">Husky's World View</a></li>
+              <li><a href="/friends" class="ps5-top-btn">Friends</a></li>
+              <li><a href="/projects" class="ps5-top-btn active">Projects</a></li>
+              <li><a href="/contacts" class="ps5-top-btn">Contacts</a></li>
+            </ul>
+
+            <ul>
+              <li><a class="ps5-top-btn active" id="time"></a></li>
+            </ul>
+          </div>
+
+          <div class="ps5-preview ps5-animate-from-bottom">
+            <div>
+              <div class="countdown_div">
+                <h1 id="countdown">26</h1>
+                <h2>days until Pi Day</h2>
+              </div>
+              <div class="piday_div" style="display: none;">
+                <h1>Today is Pi day!</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ps5-content">
+        <div class="ps5-container ps5-animate-from-bottom">
+          <div class="ps5-lists">
+            <h3>Related link</h3>
+            <div class="ps5-list">
+              <a href="https://www.unesco.org/en/days/mathematics" target="_blank" rel="" class="ps5-disk ps5-disk-min"
+                style="background-image: url('https://www.unesco.org/themes/custom/bunesco8/icon.svg'); background-color: #0077D4;">
+                <div style="mix-blend-mode: difference; user-select: none;">
+                  <p>International Day of Mathematics<span>UNESCO International Days</span></p>
+                </div>
+              </a>
+            </div>
+
+            <div class="ps5-preview ps5-animate-from-bottom">
+              <div>
+                <div>
+                  <a id="hitokoto" style="cursor: pointer;">
+                    <h2 id="hitokoto_text"></h2>
+                    <p id="hitokoto_from"></p>
+                  </a>
+                </div>
+                <div style="opacity: .25;">
+                  <p>Website style from <a href="https://edalgrin.com/" target="_blank">Eduardo Allegrini</a>, and I
+                    modified it.</p>
+                </div>
+                <div style="display: flex; justify-content: space-between; opacity: .25;">
+                  <p>Copyright &copy; 2019~<span id="this_year"></span>
+                    胡斯凯(SiberiaHusky).
+                    All rights reserved.</p>
+                  <p style="user-select: none; cursor: pointer;" title="CC BY-SA 4.0 DEED"><a
+                      href="https://creativecommons.org/licenses/by-sa/4.0/deed" target="_blank"><i
+                        class="fa-brands fa-creative-commons"></i> <i class="fa-brands fa-creative-commons-by"></i> <i
+                        class="fa-brands fa-creative-commons-sa"></i></a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+
+<script>
+  // 日期
+  var date = new Date();
+
+  var todayDate = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate()
+
+  document.querySelector('#this_year').innerText = date.getFullYear();
+
+  // 圆周率日
+  let piDay = new Date(date.getFullYear(), 3 - 1, 14);
+
+  if (date > piDay) {
+    piDay.setFullYear(piDay.getFullYear() + 1);
+    document.querySelector(".piday_div").style.display = "none";
+  }
+
+  else if (date == piDay) {
+    document.querySelector(".countdown_div").style.display = "none";
+    document.querySelector(".piday_div").style.display = "block";
+  }
+
+  else {
+    document.querySelector(".piday_div").style.display = "none";
+  }
+
+  let timeLeft = Math.round((piDay.getTime() - date.getTime()) / (1000 * 60 * 60 * 24));
+
+  document.getElementById("countdown").innerHTML = timeLeft;
+
+  function timeRefresh() {
+    var date = new Date();
+    var week = date.getDay();
+    switch (week) {
+      case 1: {
+        week = "Mon";
+        break;
+      }
+      case 2: {
+        week = "Tue";
+        break;
+      }
+      case 3: {
+        week = "Wed";
+        break;
+      }
+      case 4: {
+        week = "Thu";
+        break;
+      }
+      case 5: {
+        week = "Fri";
+        break;
+      }
+      case 6: {
+        week = "Sat";
+        break;
+      }
+      case 0: {
+        week = "Sun";
+        break;
+      }
+    }
+    var hour = date.getHours();
+    hour = hour < 10 ? "0" + hour : hour;
+    var minute = date.getMinutes();
+    minute = minute < 10 ? "0" + minute : minute;
+    document.getElementById('time').innerText = week + " " + hour + ":" + minute;
+  }
+
+  timeRefresh();
+  setInterval(timeRefresh, 1000);
+</script>
+
+</html>
